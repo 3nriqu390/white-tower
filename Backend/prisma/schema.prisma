@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Page {
+  id          Int           @id @default(autoincrement())
+  url         String        @unique
+  name        String
+  occurrences Occurrences[]
+}
+
+model Occurrences {
+  id         Int   @id @default(autoincrement())
+  ocurrences Int
+  pageId     Int?
+  wordId     Int?
+  page       Page? @relation(fields: [pageId], references: [id])
+  word       Word? @relation(fields: [wordId], references: [id])
+}
+
+model Word {
+  id          Int           @id @default(autoincrement())
+  word        String
+  occurrences Occurrences[]
+}

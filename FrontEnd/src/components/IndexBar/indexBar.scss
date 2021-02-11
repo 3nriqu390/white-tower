@@ -1,0 +1,95 @@
+.index-container{
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px 5px 15px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+//Buttons Section
+.buttons-container{
+  width: 27%;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 7px;
+}
+
+ .index{
+    background-color: forestgreen;
+    &:hover{
+      color: forestgreen;
+    }
+  }
+  .clear{
+    background-color: red;
+    &:hover{
+      color: red;
+
+    }
+  }
+
+// input section
+$highlight-color: black;
+$placeholder-padding: 8px;
+$placeholder-font-size: 16px;
+$placeholder-font-size-small: 14px;
+$placeholder-transition: 200ms ease-in-out;
+$input-font-size: 16px;
+$input-top: 15px;
+$input-height: 30px;
+$input-border-color: grey;
+$wrapper-margin: 40px 0;
+
+
+.form-input {
+  margin: $wrapper-margin;
+  width: 70%;
+
+  label {
+    position:relative;
+    display:block;
+    width:100%;
+    min-height:$input-height + $input-top;
+  }
+
+  .placeholder {
+    position:absolute;
+    display:block;
+    top:($input-height / 2) + $placeholder-padding;
+    z-index:2;
+    font-size:$placeholder-font-size;
+    transition:all $placeholder-transition;
+    width:100%;
+    cursor:text;
+  }
+
+  input{
+    position:absolute;
+    top:$input-top;
+    z-index:1;
+    width:100%;
+    font-size:$input-font-size;
+    border:0;
+    border-bottom:1px solid $input-border-color;
+    transition: border-color $placeholder-transition;
+    outline:none;
+    padding: 0;
+    margin: 0;
+    height:$input-height;
+  }
+
+  input:focus,
+  input:valid, {
+    & + .placeholder {
+      top:0;
+      cursor:inherit;
+      font-size:$placeholder-font-size-small;
+      color:$highlight-color;
+    }
+    border-bottom:2px solid $highlight-color;
+  }
+}
+
+//input section //
